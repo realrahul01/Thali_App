@@ -1,0 +1,242 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+footer{
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    position: static;
+    width: 100%;
+    bottom: 100px;
+    padding: 10px 0;
+}
+.food-card{
+    border: 1px solid #ccc;
+    width: 14rem;
+    border-radius: 10px;
+    transition: transform 0.4s ease;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+.food-card:hover{
+    transform: scale(1.1);
+}
+.food-image{
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    padding: 16px;
+    /* margin: 20px; */
+    border-radius: 20px;
+    height: 220px;
+}
+.cardBox{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    box-sizing: border-box;
+    margin-left: 30px;
+    row-gap: 40px;
+    margin-top: -30px;
+    padding-bottom: 23px;
+}
+.food-details{
+    margin-left: 16px;
+}
+.food-details h3{
+    font-size: 17px;
+}
+.food-details p{
+    font-size: 1rem;
+    color: rgb(8, 175, 16); 
+    margin-top: 5px;
+    font-weight: bold;
+}
+.HomeBanner{
+    background-image: url('./images/bannerbg.jpg');
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header{
+  background-color: #333; 
+  color: white; 
+  position: sticky;
+  top: 0;
+  z-index: 999; 
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  padding: 24px 100px;
+}
+.right-nav ul{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+.right-nav ul li{
+    list-style: none;
+}
+.left-nav span{
+    font-size: 20px;
+    text-decoration: none;
+}
+.logo-text{
+    text-decoration: none;
+    color: #fff;
+}
+.text-cart{
+    text-decoration: none;
+    color: rgb(97, 167, 97);
+}
+
+.bannerHadingBox{
+    color: #fff;
+    text-align: center;
+}
+.foodLogo{
+    display: flex;
+    border: 1px solid #fff;
+    background: #1a1919b2;
+    width: 210px;
+    margin: auto;
+    border-radius: .4rem;
+    justify-content: center;
+}
+.foodLogo h1{
+    font-weight: 700;   
+}
+.foodLogo img{
+    width: 80px;
+    object-fit: contain;
+    margin-left: 15px;
+}
+.bannerHadingBox p{
+    font-size: 2rem;
+    padding: 12px;
+}
+#orderNow{
+    border: none;
+    background: crimson;
+    color: #fff;
+    padding: 5px 40px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.foot-list h2{
+    text-align: center;
+    margin: 80px 0px;
+}
+.addToCart{
+    background: #d2aa1b;
+    margin-bottom: 15px;
+    padding: 4px 8px;
+    color: #fff;
+    border-radius: 7px;
+    border: none;
+}
+
+/* <-------cart css ---------> */
+
+.cart-container{
+    min-height: 85vh;
+    max-width: 100%;
+    padding: 60px 100px;
+    display: flex;
+    
+}
+.cart-container-left{
+    background-color: #fff;
+    min-height: 60vh;
+    min-width: 57vw;
+    border-radius: 15px 0px 0px 15px;
+    
+}
+.cart-container-right{
+    background-color: #ccc;
+    min-height: 60vh;
+    min-width: 27vw;
+}
+section{
+    background: #d2c9ff;
+    min-width: 98vw;
+}
+.cart-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cart-container-main{
+    min-height: 22rem;
+    padding: 50px 50px;
+    position: relative;
+}
+.addtocart-container h1{
+    text-align: center;
+    padding-top: 30px;
+}
+.back-to-menu{
+    position: absolute;
+    bottom: 0px;
+    text-decoration: none;
+    color: #3333339d;
+    font-weight: bold;
+}
+.cart-container-right-main{
+    padding: 50px 50px;
+}
+.cart-container-right-amount{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cart-container-right-main h2{
+    padding-bottom: 20px;
+}
+.checkout{
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    background: black;
+}
+.cartImg{
+    width: 20%;
+    height: 20%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.cartMap{
+    /* border: 1px solid blue; */
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+}
+.cartItem{
+    /* border: 1px solid blue; */
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    width: 100%;
+    margin-left: 2rem;
+}
+.btn1{
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    background: green;
+    color: #fff;
+    border: none;
+}
+.btn2{
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    background: black;
+    color: #fff;
+    border: none;
+}
