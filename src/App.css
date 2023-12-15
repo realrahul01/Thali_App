@@ -172,13 +172,18 @@ section{
     padding: 50px 50px;
     position: relative;
 }
+
+.addtocart-container{
+    padding-bottom: 40px;
+}
+
 .addtocart-container h1{
     text-align: center;
     padding-top: 30px;
 }
 .back-to-menu{
     position: absolute;
-    bottom: 0px;
+    bottom: 20px;
     text-decoration: none;
     color: #3333339d;
     font-weight: bold;
@@ -204,10 +209,10 @@ section{
     background: black;
 }
 .cartImg{
-    width: 20%;
-    height: 20%;
+    width: 15%;
+    min-height: 200px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 .cartMap{
     /* border: 1px solid blue; */
@@ -221,6 +226,7 @@ section{
     grid-template-columns: repeat(4,1fr);
     width: 100%;
     margin-left: 2rem;
+    font-weight: bold;
 }
 .btn1{
     margin-right: 10px;
@@ -239,4 +245,8 @@ section{
     background: black;
     color: #fff;
     border: none;
+}
+.controler{
+    border: 1px solid #ccc;
+    padding: 10px 15px;
 }

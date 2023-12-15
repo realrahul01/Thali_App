@@ -1,12 +1,36 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {NavLink} from 'react-router-dom'
 import { RiDeleteBin5Fill } from "react-icons/ri";
+import { incrementItem, removeItem, decrementItem} from '../../features/counter/counterSlice';
 
 
 const Cart=()=>{
 
 const cart = useSelector((state)=>state.counter.addCart)
 console.log(cart)
+
+
+const dispatch = useDispatch()
+
+const deleteHandler=(id)=>{
+    dispatch(removeItem(id))
+}
+
+const incrementHandler=()=>{
+    dispatch(incrementItem())
+}
+
+const decrementHandler=(id,quantityId)=>{
+    if(quantityId <= 1){
+        dispatch(removeItem(id))
+    }else{
+        dispatch(decrementItem())
+    }
+}
+
+const totalValue = cart.reduce((acc,currentValue)=>{
+    return acc + currentValue.price * currentValue.quantity
+},0)
 
     return(
         <section>
@@ -15,7 +39,7 @@ console.log(cart)
                     <div className="cart-container-main">
                     <div className="cart-item">
                         <h1>Thali Items</h1>
-                        <p> 0 Items</p>
+                        <p> {cart.length} Items</p>
                     </div>
                     <hr />
                         <div className='addtocart-container'>
@@ -24,18 +48,18 @@ console.log(cart)
                                     <h1>Your cart is empty</h1>                                    
                                 </div>
                                 ) : (
-                                cart.map((x,index)=>(
-                                    <div key={index} className='cartMap'>
+                                cart.map((x)=>(
+                                    <div key={x.id} className='cartMap'>
                                             <img src={x.images} alt="error" className='cartImg' />
                                         <div className='cartItem'>
                                             <p>{x.name}</p>
                                             <div className='btnGp'>
-                                                <button className='btn1'>+</button>
-                                                    <span className='controler'>0</span>
-                                                <button className='btn2'>-</button>
+                                                <button onClick={incrementHandler} className='btn1'>+</button>
+                                                    <span className='controler'>{x.quantity}</span>
+                                                <button onClick={()=>decrementHandler(x.id,x.quantity)} className='btn2'>-</button>
                                             </div>
                                             <p>$ {x.price}</p>
-                                            <p> <RiDeleteBin5Fill /> </p>
+                                            <p style={{color:'red'}}> <RiDeleteBin5Fill onClick={()=>deleteHandler(x.id)}/> </p>
                                         </div>
                                     </div>
                                     
@@ -51,7 +75,7 @@ console.log(cart)
                         <hr />
                         <div className='cart-container-right-amount'>
                             <h3>Total Price</h3>
-                            <p>${cart.reduce((total, item) => total + item.price, 0).toFixed(2)}</p>
+                            <p>${totalValue}</p>
                         </div>
                         <button className='checkout'>Checkout</button>
                     </div>

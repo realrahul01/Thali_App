@@ -9,11 +9,34 @@ const initialState = {
     initialState,
     reducers: {
       thaliList:(state,action)=>{
-        state.addCart.push(action.payload)
-    }
+        const existingItem = state.addCart.find((x)=>x.id == action.payload.id)
+        if(existingItem){
+          state.addCart = state.addCart.map((x)=>{
+            return {...x, quantity: x.quantity + 1}
+          })
+        }
+        else{
+          state.addCart.push({ ...action.payload, quantity: 1 });
+        }
+    },
+    removeItem:(state,action)=>{
+      state.addCart = state.addCart.filter((x)=>{
+        return x.id !== action.payload
+      })
+    },
+    incrementItem:(state)=>{
+      state.addCart = state.addCart.map((x)=>{
+        return {...x, quantity:x.quantity + 1}
+      })
+    },
+    decrementItem:(state)=>{
+      state.addCart = state.addCart.map((x)=>{
+        return {...x, quantity: x.quantity - 1}
+      })
+    }   
   },
 })
 
-export const { thaliList} = counterSlice.actions
+export const { thaliList,removeItem,incrementItem,decrementItem} = counterSlice.actions
 
 export default counterSlice.reducer;
