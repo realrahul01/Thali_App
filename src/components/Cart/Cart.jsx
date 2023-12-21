@@ -16,15 +16,15 @@ const deleteHandler=(id)=>{
     dispatch(removeItem(id))
 }
 
-const incrementHandler=()=>{
-    dispatch(incrementItem())
+const incrementHandler=(index)=>{
+    dispatch(incrementItem(index))
 }
 
 const decrementHandler=(id,quantityId)=>{
     if(quantityId <= 1){
         dispatch(removeItem(id))
     }else{
-        dispatch(decrementItem())
+        dispatch(decrementItem(id))
     }
 }
 
@@ -45,20 +45,20 @@ const totalValue = cart.reduce((acc,currentValue)=>{
                         <div className='addtocart-container'>
                             {cart.length == 0 ? (
                                 <div>
-                                    <h1>Your cart is empty</h1>                                    
+                                    <h1 style={{color:'red'}}>Your cart is empty...</h1>                                    
                                 </div>
                                 ) : (
                                 cart.map((x)=>(
                                     <div key={x.id} className='cartMap'>
-                                            <img src={x.images} alt="error" className='cartImg' />
+                                                <img src={x.images} alt="error" className='cartImg' />
                                         <div className='cartItem'>
                                             <p>{x.name}</p>
                                             <div className='btnGp'>
-                                                <button onClick={incrementHandler} className='btn1'>+</button>
+                                                <button onClick={()=>incrementHandler(x.id)} className='btn1'>+</button>
                                                     <span className='controler'>{x.quantity}</span>
                                                 <button onClick={()=>decrementHandler(x.id,x.quantity)} className='btn2'>-</button>
                                             </div>
-                                            <p>$ {x.price}</p>
+                                            <p className='price'>$ {x.price}</p>
                                             <p style={{color:'red'}}> <RiDeleteBin5Fill onClick={()=>deleteHandler(x.id)}/> </p>
                                         </div>
                                     </div>

@@ -24,14 +24,20 @@ const initialState = {
         return x.id !== action.payload
       })
     },
-    incrementItem:(state)=>{
+    incrementItem:(state,action)=>{
       state.addCart = state.addCart.map((x)=>{
-        return {...x, quantity:x.quantity + 1}
+        if(x.id == action.payload){
+          return  {...x, quantity:x.quantity + 1}
+        }
+        return x
       })
     },
-    decrementItem:(state)=>{
+    decrementItem:(state,action)=>{
       state.addCart = state.addCart.map((x)=>{
-        return {...x, quantity: x.quantity - 1}
+        if(x.id === action.payload){
+          return {...x, quantity: x.quantity - 1}
+        }
+        return x
       })
     }   
   },

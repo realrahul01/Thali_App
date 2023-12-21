@@ -250,3 +250,84 @@ section{
     border: 1px solid #ccc;
     padding: 10px 15px;
 }
+
+
+
+
+
+
+
+/* <--------------media query----------> */
+
+@media only screen and (max-width:1300px){
+    .cart-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+@media only screen and (max-width:1052px){
+    .cartMap{
+        display: flex;
+        flex-direction: column;
+    }
+    .cartImg{
+        width: 50%;
+        height: 200px;
+    }
+    .cartItem{
+        text-align: center;
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+    }
+    .price{
+        margin-top: 15px;
+    }
+}
+
+@media only screen and (max-width:950px){
+    .cardBox{
+        /* display: flex;
+        flex-wrap: wrap; */
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+@media only screen and (max-width:768px) {
+    .cardBox{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media only screen and (max-width:520px) {
+    .cardBox{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .cardBox{
+        margin-left: 50px;
+    }
+    .left-nav{
+        position: absolute;
+        left: 0px;
+        top: 10px;
+    }
+    .right-nav ul{
+        position: absolute;
+        right: 0px;
+        top: 10px;
+    }
+    .btnGp{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    .controler{
+        margin: 10px 0px;
+    }
+}
